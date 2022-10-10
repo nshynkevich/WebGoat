@@ -86,7 +86,8 @@ public class WebGoatUser implements UserDetails {
     }
 
     public boolean equals(Object obj) {
-        return obj instanceof WebGoatUser webGoatUser && this.user.equals(webGoatUser.user);
+        //return obj instanceof WebGoatUser webGoatUser && this.user.equals(webGoatUser.user);
+        return this.user.equals(obj.user);
     }
 
     public int hashCode() {
